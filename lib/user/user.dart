@@ -3,10 +3,12 @@ import 'package:models/dive/dive.dart';
 import 'package:models/orient/orient.dart';
 import 'package:tools/generator.dart';
 
+import '../serializable.dart';
+
 part 'user.g.dart';
 
 @JsonSerializable()
-class User {
+class User implements Serializable {
   final String id;
   String phone;
   List<Orient> orients;

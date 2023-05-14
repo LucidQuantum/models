@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/generator.dart';
 
 import '../dive/dive.dart';
+import '../serializable.dart';
 
 part 'orient.g.dart';
 
@@ -10,7 +11,7 @@ part 'orient.g.dart';
 /// 代表深海蛋中采集珍珠草时要确定的一个方向
 /// 也代表现实生活中，要工作之前，先确定的目标
 @JsonSerializable()
-class Orient {
+class Orient implements Serializable {
   final String id;
   String name;
   String caption;

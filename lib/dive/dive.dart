@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../serializable.dart';
+
 part 'dive.g.dart';
 
 /// 下潜[Dive]
@@ -7,7 +9,7 @@ part 'dive.g.dart';
 /// 代表要采集珍珠草时的行动
 /// 也代表现实生活中，完成任务时所要进入的心流状态
 @JsonSerializable()
-class Dive {
+class Dive implements Serializable {
   final DateTime begin;
   final DateTime end;
   Dive({required this.begin, required this.end});
