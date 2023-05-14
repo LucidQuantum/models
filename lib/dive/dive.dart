@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/parser.dart';
 
 part 'dive.g.dart';
 
@@ -14,6 +13,5 @@ class Dive {
   Dive({required this.begin, required this.end});
 
   factory Dive.fromJson(Map<String, dynamic> json) => _$DiveFromJson(json);
-
   Map<String, dynamic> toJson() => _$DiveToJson(this);
 }

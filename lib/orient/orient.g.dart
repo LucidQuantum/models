@@ -1,4 +1,3 @@
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'orient.dart';
@@ -9,7 +8,7 @@ part of 'orient.dart';
 
 Orient _$OrientFromJson(Map<String, dynamic> json) => Orient(
       id: json['id'] as String,
-      title: json['title'] as String,
+      name: json['name'] as String,
       caption: json['caption'] as String,
       dives: (json['dives'] as List<dynamic>)
           .map((e) => Dive.fromJson(e as Map<String, dynamic>))
@@ -19,7 +18,7 @@ Orient _$OrientFromJson(Map<String, dynamic> json) => Orient(
 
 Map<String, dynamic> _$OrientToJson(Orient instance) => <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
+      'name': instance.name,
       'caption': instance.caption,
       'dives': instance.dives,
       'state': _$OrientStateEnumMap[instance.state]!,
