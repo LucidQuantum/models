@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:models/dive/dive.dart';
 import 'package:models/orient/orient.dart';
+import 'package:tools/generator.dart';
 
 part 'user.g.dart';
 
@@ -17,6 +18,12 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
   Map<String, dynamic> toJson() => _$UserToJson(this);
+
+  factory User.create(String phone) => User(
+        id: Generator.id(),
+        phone: phone,
+        orients: [],
+      );
 
   addOrient(String name) {
     final orient = Orient.create(name);
