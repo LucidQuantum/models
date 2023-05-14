@@ -20,7 +20,7 @@ Map<String, dynamic> _$OrientToJson(Orient instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'caption': instance.caption,
-      'dives': instance.dives,
+      'dives': instance.dives.map((e) => e.toJson()).toList(),
       'state': _$OrientStateEnumMap[instance.state]!,
     };
 

@@ -23,7 +23,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'phone': instance.phone,
-      'orients': instance.orients,
-      'currentOrient': instance.currentOrient,
+      'orients': instance.orients.map((e) => e.toJson()).toList(),
+      'currentOrient': instance.currentOrient?.toJson(),
       'startTime': instance.startTime?.toIso8601String(),
     };
