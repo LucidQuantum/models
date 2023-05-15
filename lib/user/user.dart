@@ -13,7 +13,11 @@ class User implements Serializable {
   String phone;
   List<Orient> orients;
 
-  Orient? currentOrient;
+  @JsonKey(includeFromJson: true, includeToJson: true)
+  int? _currentOrientIndex;
+  Orient? get currentOrient =>
+      _currentOrientIndex != null ? orients[_currentOrientIndex!] : null;
+
   DateTime? startTime;
 
   User({required this.id, required this.phone, required this.orients});
@@ -34,20 +38,20 @@ class User implements Serializable {
   }
 
   startDive(Orient orient) {
-    assert(currentOrient == null && startTime == null);
+    assert(_currentOrientIndex == null && startTime == null);
     // 记录orient和当前时间
     startTime = DateTime.now();
-    currentOrient = orient;
+    _currentOrientIndex = orients.indexOf(orient);
   }
 
   finishDive() {
-    assert(currentOrient != null && startTime != null);
+    assert(_currentOrientIndex != null && startTime != null);
     // 在当前orient中加入一个Dive
     final dive = Dive(begin: startTime!, end: DateTime.now());
     currentOrient!.dives.add(dive);
 
     // 清除当前信息
-    currentOrient = null;
+    _currentOrientIndex = null;
     startTime = null;
   }
 }
