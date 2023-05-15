@@ -27,9 +27,10 @@ class User implements Serializable {
         orients: [],
       );
 
-  addOrient(String name) {
+  Orient createOrient(String name) {
     final orient = Orient.create(name);
     orients.add(orient);
+    return orient;
   }
 
   startDive(Orient orient) {
