@@ -1,5 +1,4 @@
 import '../../request/request.dart';
-import '../checker/phone.dart';
 
 class SendSmsRequest extends Request {
   final String phone;

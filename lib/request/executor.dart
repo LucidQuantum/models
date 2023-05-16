@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
 import 'package:models/request/request.dart';
-import 'package:models/refuse.dart';
 
 /// 服务端使用，定义了处理某种Request的方式
 ///
