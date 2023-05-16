@@ -39,7 +39,7 @@ class Token extends Serializable {
     return Token(deviceId: deviceId, userId: userId, token: token);
   }
 
-  factory Token.parse(String token) {
+  factory Token.verify(String token) {
     try {
       final decClaimSet = verifyJwtHS256Signature(token, _secret);
 
