@@ -35,12 +35,11 @@ class Request implements Serializable {
     return data![key];
   }
 
-  Future<Response> waitForReply(WebSocket socket) async {
+  Future<Response> waitForReply(Stream broadcast) async {
     final completer = Completer<String>();
-    final broadcastStream = socket.asBroadcastStream();
     late StreamSubscription subscription;
 
-    subscription = broadcastStream.listen((data) {
+    subscription = broadcast.listen((data) {
       final response = Response.fromJson(jsonDecode(data));
       bool isReplyForThis = response.id == id;
       if (isReplyForThis && !completer.isCompleted) {
