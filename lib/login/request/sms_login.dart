@@ -4,7 +4,10 @@ import 'package:models/login/checker/sms.dart';
 import '../../request/request.dart';
 
 class SmsLogin extends Request {
-  SmsLogin(ValidSms sms, ValidPhone phone)
+  final ValidSms sms;
+  final ValidPhone phone;
+
+  SmsLogin(this.sms, this.phone)
       : super.create(
           RequestType.smsLogin,
           data: {"sms_code": sms.value, "phone": phone.value},
