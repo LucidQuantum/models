@@ -8,9 +8,7 @@ import 'package:mongo_dart/mongo_dart.dart';
 /// 比如说，就可以防止User model不小心插入到Sms collection中
 abstract class BaseCollection<T extends Document> {
   @protected
-  final DbCollection collection;
-
-  BaseCollection(this.collection);
+  DbCollection get collection;
 
   Future insert(T item) async {
     await collection.insert(item.toJson());
