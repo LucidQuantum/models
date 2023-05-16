@@ -5,12 +5,12 @@ part 'response.g.dart';
 
 @JsonSerializable()
 class Response implements Serializable {
-  final String? id;
+  String? id;
   final bool success;
   final dynamic message;
   final Map<String, dynamic>? data;
 
-  const Response({this.id, required this.success, this.message, this.data});
+  Response({this.id, required this.success, this.message, this.data});
 
   factory Response.refuse(String message,
           {String? id, Map<String, dynamic>? data}) =>

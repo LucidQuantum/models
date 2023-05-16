@@ -54,4 +54,9 @@ class Request implements Serializable {
 
     return response;
   }
+
+  reply(WebSocket socket, Response response) {
+    response.id = id;
+    socket.add(jsonEncode(response.toJson()));
+  }
 }
