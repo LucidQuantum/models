@@ -2,7 +2,7 @@ name: models
 description: 弗田使用的model
 
 environment:
-    sdk: '>=2.17.0 <3.0.0'
+    sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
     json_annotation: ^4.8.1
@@ -12,7 +12,7 @@ dependencies:
             ref: main
 
 dev_dependencies:
-    lints: ^2.0.0
-    test: ^1.16.0
+    lints: ^2.1.0
+    test: ^1.24.2
     json_serializable: ^6.6.2
-    build_runner: ^2.2.2
+    build_runner: ^2.4.4
