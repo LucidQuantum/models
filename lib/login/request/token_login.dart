@@ -1,10 +1,9 @@
-import 'package:models/request/request.dart';
+import '../../network/request/request.dart';
 
 class TokenLoginRequest extends Request {
-  final String token;
-  TokenLoginRequest(this.token)
+  TokenLoginRequest(String token)
       : super.create(
-          RequestType.tokenLogin,
+          command: "token_login",
           data: {"token": token},
         );
 }

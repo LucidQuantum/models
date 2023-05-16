@@ -19,8 +19,7 @@ class Request implements Serializable {
 
   const Request({required this.id, required this.command, required this.data});
 
-  factory Request.create({required String command, Json? data}) =>
-      Request(id: Generator.id(), command: command, data: data);
+  Request.create({required this.command, this.data}) : id = Generator.id();
 
   factory Request.fromJson(Json json) => _$RequestFromJson(json);
   Json toJson() => _$RequestToJson(this);

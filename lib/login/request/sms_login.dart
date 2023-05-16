@@ -1,12 +1,9 @@
-import '../../request/request.dart';
+import '../../network/request/request.dart';
 
 class SmsLogin extends Request {
-  final String sms;
-  final String phone;
-
-  SmsLogin(this.sms, this.phone)
-      : super.create(
-          RequestType.smsLogin,
-          data: {"sms_code": sms, "phone": phone},
-        );
+  SmsLogin(String code, String phone)
+      : super.create(command: "sms_login", data: {
+          "code": code,
+          "phone": phone,
+        });
 }

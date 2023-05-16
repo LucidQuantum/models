@@ -1,10 +1,8 @@
-import '../../request/request.dart';
+import '../../network/request/request.dart';
 
 class SendSmsRequest extends Request {
-  final String phone;
-  SendSmsRequest(this.phone)
-      : super.create(
-          RequestType.sendSms,
-          data: {"phone": phone},
-        );
+  SendSmsRequest(String phone)
+      : super.create(command: "send_sms", data: {
+          "phone": phone,
+        });
 }
