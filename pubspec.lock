@@ -241,14 +241,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.13.6"
-  http_methods:
-    dependency: transitive
-    description:
-      name: http_methods
-      sha256: "6bccce8f1ec7b5d701e7921dca35e202d425b57e317ba1a37f2638590e29e566"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.1"
   http_multi_server:
     dependency: transitive
     description:
@@ -481,14 +473,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.2"
-  shelf_router:
-    dependency: transitive
-    description:
-      name: shelf_router
-      sha256: f5e5d492440a7fb165fe1e2e1a623f31f734d3370900070b2b1e0d0428d59864
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.4"
   shelf_static:
     dependency: transitive
     description:
@@ -622,7 +606,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "77bff05d1262606345b64249a24ad94cb81d8485"
+      resolved-ref: "5968e40c3376db415959b4d835a2ff27cd9f4581"
       url: "https://github.com/LucidQuantum/tools.git"
     source: git
     version: "1.0.0"

@@ -64,3 +64,27 @@ class Request implements Serializable {
     socket.add(jsonEncode(response.toJson()));
   }
 }
+
+// /// 等待回复
+// /// 根据id识别，一旦收到了准确的回复，就会关闭监听
+// Future<Response> waitForReply(Stream broadcast) async {
+//   assert(broadcast is! WebSocket);
+
+//   final completer = Completer<String>();
+//   late StreamSubscription subscription;
+
+//   subscription = broadcast.listen((data) {
+//     final response = Response.fromJson(jsonDecode(data));
+//     bool isReplyForThis = response.id == id;
+//     if (isReplyForThis && !completer.isCompleted) {
+//       completer.complete(data);
+//       subscription.cancel();
+//     }
+//   });
+
+//   final json = await completer.future;
+//   final response = Response.fromJson(jsonDecode(json));
+
+//   return response;
+// }
+
