@@ -1,18 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:models/serializable.dart';
 
+import '../../json.dart';
+
 part 'request.g.dart';
 
 @JsonSerializable()
 class Request implements Serializable {
   final String command;
-  final Map<String, dynamic>? data;
+  final Json? data;
 
   const Request({required this.command, required this.data});
 
-  factory Request.fromJson(Map<String, dynamic> json) =>
-      _$RequestFromJson(json);
-  Map<String, dynamic> toJson() => _$RequestToJson(this);
+  factory Request.fromJson(Json json) => _$RequestFromJson(json);
+  Json toJson() => _$RequestToJson(this);
 
   /// 从Request中稳定获取一个数值，否则报错
   T extract<T>(String key) {

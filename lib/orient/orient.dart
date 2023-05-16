@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/generator.dart';
 
 import '../dive/dive.dart';
+import '../json.dart';
 import '../serializable.dart';
 
 part 'orient.g.dart';
@@ -36,8 +37,8 @@ class Orient implements Serializable {
     );
   }
 
-  factory Orient.fromJson(Map<String, dynamic> json) => _$OrientFromJson(json);
-  Map<String, dynamic> toJson() => _$OrientToJson(this);
+  factory Orient.fromJson(Json json) => _$OrientFromJson(json);
+  Json toJson() => _$OrientToJson(this);
 }
 
 enum OrientState { active, discarded, completed }
