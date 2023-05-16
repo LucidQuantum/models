@@ -4,7 +4,6 @@ import 'package:models/json.dart';
 import 'package:models/orient/orient.dart';
 import 'package:tools/generator.dart';
 
-import '../json.dart';
 import '../serializable.dart';
 
 part 'user.g.dart';

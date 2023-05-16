@@ -3,7 +3,6 @@ import 'package:models/json.dart';
 import 'package:tools/generator.dart';
 
 import '../dive/dive.dart';
-import '../json.dart';
 import '../serializable.dart';
 
 part 'orient.g.dart';
