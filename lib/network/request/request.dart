@@ -16,12 +16,11 @@ class Request implements Serializable {
   final String command;
   final Map<String, dynamic>? data;
 
-  const Request._(
-      {required this.id, required this.command, required this.data});
+  const Request({required this.id, required this.command, required this.data});
 
   factory Request.create(
           {required String command, Map<String, dynamic>? data}) =>
-      Request._(id: Generator.id(), command: command, data: data);
+      Request(id: Generator.id(), command: command, data: data);
 
   factory Request.fromJson(Map<String, dynamic> json) =>
       _$RequestFromJson(json);
