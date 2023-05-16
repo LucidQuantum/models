@@ -1,12 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:models/database/selectable.dart';
+import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/json.dart';
-import 'package:models/serializable.dart';
+import 'package:models/database/serializable.dart';
 import 'package:tools/generator.dart';
 
 part 'sms.g.dart';
 
 @JsonSerializable()
-class Sms extends Serializable {
+class Sms implements Serializable, Selectable {
   final String phone;
   final String code;
   final DateTime createAt;
@@ -28,4 +30,8 @@ class Sms extends Serializable {
 
   Json toJson() => _$SmsToJson(this);
   factory Sms.fromJson(Json json) => _$SmsFromJson(json);
+
+  @override
+  SelectorBuilder get defaultSelector =>
+      where.eq("phone", phone).eq("code", code);
 }

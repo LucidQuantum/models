@@ -1,14 +1,17 @@
 import 'package:jaguar_jwt/jaguar_jwt.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/generator.dart';
 import 'package:tools/json.dart';
-import 'package:models/serializable.dart';
+import 'package:models/database/serializable.dart';
 import 'package:tools/refuse.dart';
+
+import '../../database/selectable.dart';
 
 part 'token.g.dart';
 
 @JsonSerializable()
-class Token extends Serializable {
+class Token implements Serializable, Selectable {
   final String deviceId;
   final String userId;
   final String token;
@@ -57,6 +60,9 @@ class Token extends Serializable {
       throw Refuse("token检验失败，请重新登录");
     }
   }
+
+  @override
+  SelectorBuilder get defaultSelector => where.eq("token", token);
 }
 
 const _secret = "酸性量子2022, 浙江金华";

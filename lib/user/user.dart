@@ -1,15 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:models/database/selectable.dart';
 import 'package:models/dive/dive.dart';
+import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/json.dart';
 import 'package:models/orient/orient.dart';
 import 'package:tools/generator.dart';
 
-import '../serializable.dart';
+import '../database/serializable.dart';
 
 part 'user.g.dart';
 
 @JsonSerializable()
-class User implements Serializable {
+class User implements Serializable, Selectable {
   final String id;
   String phone;
   List<Orient> orients;
@@ -55,4 +57,7 @@ class User implements Serializable {
     _currentOrientIndex = null;
     startTime = null;
   }
+
+  @override
+  SelectorBuilder get defaultSelector => where.eq("id", id);
 }
