@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:models/dive/dive.dart';
-import 'package:models/json.dart';
+import 'package:tools/json.dart';
 import 'package:models/orient/orient.dart';
 import 'package:tools/generator.dart';
 

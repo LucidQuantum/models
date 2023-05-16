@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:models/json.dart';
+import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
 import '../dive/dive.dart';

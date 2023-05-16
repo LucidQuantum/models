@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json.dart';
+import 'package:tools/json.dart';
 import '../serializable.dart';
 
 part 'dive.g.dart';

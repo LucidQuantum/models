@@ -1,4 +1,4 @@
-import 'package:models/json.dart';
+import 'package:tools/json.dart';
 
 abstract class Serializable {
   Json toJson();

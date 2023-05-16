@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:models/json.dart';
+import 'package:tools/json.dart';
 import 'package:models/serializable.dart';
 import 'package:tools/generator.dart';
 

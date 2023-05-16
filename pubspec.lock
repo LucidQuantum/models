@@ -606,10 +606,10 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "5968e40c3376db415959b4d835a2ff27cd9f4581"
+      resolved-ref: "70df24ac9b2356ed0a71a8c6de6512042e86b356"
       url: "https://github.com/LucidQuantum/tools.git"
     source: git
-    version: "1.0.0"
+    version: "0.0.0"
   typed_data:
     dependency: transitive
     description:
