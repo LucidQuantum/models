@@ -5,6 +5,7 @@ environment:
     sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+    jaguar_jwt: ^3.0.0
     json_annotation: ^4.8.1
     tools:
         git:

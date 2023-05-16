@@ -7,8 +7,6 @@ part 'sms.g.dart';
 
 @JsonSerializable()
 class Sms extends Serializable {
-  static const expireTime = Duration(minutes: 15);
-
   final String phone;
   final String code;
   final DateTime createAt;
