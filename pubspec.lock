@@ -69,10 +69,10 @@ packages:
     dependency: transitive
     description:
       name: build
-      sha256: "3fbda25365741f8251b39f3917fb3c8e286a96fd068a5a242e11c2012d495777"
+      sha256: "43865b79fbb78532e4bff7c33087aa43b1d488c4fdef014eaef568af6d8016dc"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.3.1"
+    version: "2.4.0"
   build_config:
     dependency: transitive
     description:
@@ -109,10 +109,10 @@ packages:
     dependency: transitive
     description:
       name: build_runner_core
-      sha256: "14febe0f5bac5ae474117a36099b4de6f1dbc52df6c5e55534b3da9591bf4292"
+      sha256: "30859c90e9ddaccc484f56303931f477b1f1ba2bab74aa32ed5d6ce15870f8cf"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "7.2.7"
+    version: "7.2.8"
   built_collection:
     dependency: transitive
     description:
@@ -241,14 +241,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.13.6"
-  http_methods:
-    dependency: transitive
-    description:
-      name: http_methods
-      sha256: "6bccce8f1ec7b5d701e7921dca35e202d425b57e317ba1a37f2638590e29e566"
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.1"
   http_multi_server:
     dependency: transitive
     description:
@@ -481,14 +473,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.2"
-  shelf_router:
-    dependency: transitive
-    description:
-      name: shelf_router
-      sha256: f5e5d492440a7fb165fe1e2e1a623f31f734d3370900070b2b1e0d0428d59864
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.4"
   shelf_static:
     dependency: transitive
     description:
@@ -622,7 +606,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "842907b4bae1a398fd108b2821bd5415c564814f"
+      resolved-ref: "5968e40c3376db415959b4d835a2ff27cd9f4581"
       url: "https://github.com/LucidQuantum/tools.git"
     source: git
     version: "1.0.0"
@@ -670,10 +654,10 @@ packages:
     dependency: transitive
     description:
       name: watcher
-      sha256: "6a7f46926b01ce81bfc339da6a7f20afbe7733eff9846f6d6a5466aa4c6667c0"
+      sha256: "3d2ad6751b3c16cf07c7fca317a1413b3f26530319181b37e3b9039b84fc01d8"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.2"
+    version: "1.1.0"
   web_socket_channel:
     dependency: transitive
     description:
