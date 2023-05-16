@@ -1,6 +1,6 @@
 class Refuse {
-  String why;
-  Refuse({required this.why});
+  String reason;
+  Refuse(this.reason);
 
-  String toString() => "未捕捉的Refuse: $why";
+  String toString() => "未捕捉的Refuse: $reason";
 }
