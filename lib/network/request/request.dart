@@ -6,6 +6,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
 import 'package:models/serializable.dart';
 import 'package:tools/generator.dart';
+import 'package:tools/refuse.dart';
 
 import '../response/response.dart';
 
@@ -23,6 +24,15 @@ class Request implements Serializable {
 
   factory Request.fromJson(Json json) => _$RequestFromJson(json);
   Json toJson() => _$RequestToJson(this);
+
+  factory Request.parse(String string) {
+    final json = string.toJson();
+
+    json.ensure<String>("command");
+    json.ensure<Json>("data", nullable: true);
+
+    return Request.fromJson(json);
+  }
 
   /// 等待回复
   /// 根据id识别，一旦收到了准确的回复，就会关闭监听
@@ -51,11 +61,8 @@ class Request implements Serializable {
 
   /// 从Request的dada中稳定获取一个数值，否则报错
   T extract<T>(String key) {
-    if (data == null) throw Exception("data为空，请补充");
-    if (!data!.containsKey(key)) throw Exception("数据中缺少$key");
-    if (data![key] is! T) throw Exception("数据$key的格式不正确，应该为${T.toString()}");
-
-    return data![key];
+    if (data == null) throw Refuse("data为空，请补充");
+    return data!.extract<T>(key);
   }
 
   reply(WebSocket socket, Response response) {

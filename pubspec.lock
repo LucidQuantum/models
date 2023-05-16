@@ -606,7 +606,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "70df24ac9b2356ed0a71a8c6de6512042e86b356"
+      resolved-ref: cd049f01b1392251c524413540cfbaa1bb3b5dd9
       url: "https://github.com/LucidQuantum/tools.git"
     source: git
     version: "0.0.0"
