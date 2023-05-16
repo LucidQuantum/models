@@ -12,8 +12,8 @@ class Response implements Serializable {
 
   const Response({this.id, required this.success, this.message, this.data});
 
-  factory Response.refuse(
-          {String? id, required String message, Map<String, dynamic>? data}) =>
+  factory Response.refuse(String message,
+          {String? id, Map<String, dynamic>? data}) =>
       Response(id: id, success: false, message: message, data: data);
 
   factory Response.fromJson(Map<String, dynamic> json) =>
