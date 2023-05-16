@@ -13,13 +13,13 @@ abstract class Command {
   final Request request;
   Command(this.request);
 
-  /// 1. 检查输入是否符合格式
+  /// 检查输入是否符合格式
   void inputCheck();
 
-  /// 2. 检查是否满足执行条件
+  /// 检查是否满足执行条件
   Future prerequisiteCheck();
 
-  /// 3. 执行并返回数据
+  /// 执行并返回数据
   Future<Response> execute();
 
   /// 由服务器统一调用，开发者只需要指定前3个function即可
