@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:models/json.dart';
 import 'package:models/serializable.dart';
 import 'package:tools/generator.dart';
 
@@ -14,17 +15,15 @@ part 'request.g.dart';
 class Request implements Serializable {
   final String id;
   final String command;
-  final Map<String, dynamic>? data;
+  final Json? data;
 
   const Request({required this.id, required this.command, required this.data});
 
-  factory Request.create(
-          {required String command, Map<String, dynamic>? data}) =>
+  factory Request.create({required String command, Json? data}) =>
       Request(id: Generator.id(), command: command, data: data);
 
-  factory Request.fromJson(Map<String, dynamic> json) =>
-      _$RequestFromJson(json);
-  Map<String, dynamic> toJson() => _$RequestToJson(this);
+  factory Request.fromJson(Json json) => _$RequestFromJson(json);
+  Json toJson() => _$RequestToJson(this);
 
   /// 等待回复
   /// 根据id识别，一旦收到了准确的回复，就会关闭监听

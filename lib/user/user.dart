@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:models/dive/dive.dart';
+import 'package:models/json.dart';
 import 'package:models/orient/orient.dart';
 import 'package:tools/generator.dart';
 
@@ -22,8 +23,8 @@ class User implements Serializable {
 
   User({required this.id, required this.phone, required this.orients});
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  factory User.fromJson(Json json) => _$UserFromJson(json);
+  Json toJson() => _$UserToJson(this);
 
   factory User.create(String phone) => User(
         id: Generator.id(),

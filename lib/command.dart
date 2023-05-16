@@ -1,6 +1,8 @@
+import 'package:models/json.dart';
+
 abstract class Command {
   final String name;
-  final Map<String, dynamic>? data;
+  final Json? data;
 
   Command(this.name, {this.data});
 

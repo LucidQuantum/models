@@ -1,3 +1,5 @@
+import 'package:models/json.dart';
+
 abstract class Serializable {
-  Map<String, dynamic> toJson();
+  Json toJson();
 }

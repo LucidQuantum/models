@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../json.dart';
 import '../serializable.dart';
 
 part 'dive.g.dart';
@@ -14,6 +15,6 @@ class Dive implements Serializable {
   final DateTime end;
   Dive({required this.begin, required this.end});
 
-  factory Dive.fromJson(Map<String, dynamic> json) => _$DiveFromJson(json);
-  Map<String, dynamic> toJson() => _$DiveToJson(this);
+  factory Dive.fromJson(Json json) => _$DiveFromJson(json);
+  Json toJson() => _$DiveToJson(this);
 }
