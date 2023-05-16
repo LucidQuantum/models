@@ -1,14 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:models/database/selectable.dart';
 import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/json.dart';
-import 'package:models/database/serializable.dart';
 import 'package:tools/generator.dart';
+
+import '../../database/document.dart';
 
 part 'sms.g.dart';
 
 @JsonSerializable()
-class Sms implements Serializable, Selectable {
+class Sms implements Document {
   final String phone;
   final String code;
   final DateTime createAt;

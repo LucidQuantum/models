@@ -3,15 +3,14 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/generator.dart';
 import 'package:tools/json.dart';
-import 'package:models/database/serializable.dart';
 import 'package:tools/refuse.dart';
 
-import '../../database/selectable.dart';
+import '../../database/document.dart';
 
 part 'token.g.dart';
 
 @JsonSerializable()
-class Token implements Serializable, Selectable {
+class Token implements Document {
   final String deviceId;
   final String userId;
   final String token;

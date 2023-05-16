@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
-import 'package:models/database/serializable.dart';
+
+import '../../database/document.dart';
 
 part 'response.g.dart';
 

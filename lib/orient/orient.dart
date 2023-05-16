@@ -2,8 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
+import '../database/document.dart';
 import '../dive/dive.dart';
-import '../database/serializable.dart';
 
 part 'orient.g.dart';
 

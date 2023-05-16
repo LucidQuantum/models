@@ -4,10 +4,10 @@ import 'dart:io';
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
-import 'package:models/database/serializable.dart';
 import 'package:tools/generator.dart';
 import 'package:tools/refuse.dart';
 
+import '../../database/document.dart';
 import '../response/response.dart';
 
 part 'request.g.dart';
