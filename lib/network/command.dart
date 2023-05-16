@@ -1,8 +1,9 @@
 import 'package:meta/meta.dart';
 import 'package:models/network/request/request.dart';
+import 'package:models/network/response/response.dart';
 import 'package:tools/refuse.dart';
 
-import '../../user/user.dart';
+import '../user/user.dart';
 
 /// 服务端使用，定义了处理某种Request的方式
 ///
@@ -19,11 +20,11 @@ abstract class Command {
   Future prerequisiteCheck();
 
   /// 3. 执行并返回数据
-  Future<dynamic> execute();
+  Future<Response> execute();
 
   /// 由服务器统一调用，开发者只需要指定前3个function即可
   @protected
-  Future<dynamic> run() async {
+  Future<Response> run() async {
     inputCheck();
     await prerequisiteCheck();
     final result = await execute();
