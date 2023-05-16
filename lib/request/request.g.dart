@@ -8,17 +8,17 @@ part of 'request.dart';
 
 Request _$RequestFromJson(Map<String, dynamic> json) => Request(
       id: json['id'] as String,
-      type: $enumDecode(_$TypeEnumMap, json['type']),
+      type: $enumDecode(_$RequestTypeEnumMap, json['type']),
       data: json['data'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$RequestToJson(Request instance) => <String, dynamic>{
       'id': instance.id,
-      'type': _$TypeEnumMap[instance.type]!,
+      'type': _$RequestTypeEnumMap[instance.type]!,
       'data': instance.data,
     };
 
-const _$TypeEnumMap = {
+const _$RequestTypeEnumMap = {
   RequestType.sendSms: 'sendSms',
   RequestType.smsLogin: 'smsLogin',
   RequestType.tokenLogin: 'tokenLogin',
