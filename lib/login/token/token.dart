@@ -1,9 +1,9 @@
 import 'package:jaguar_jwt/jaguar_jwt.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:mongo_dart_query/mongo_dart_query.dart';
+import 'package:tools/error_handling/app_error.dart';
 import 'package:tools/generator.dart';
 import 'package:tools/json.dart';
-import 'package:tools/refuse.dart';
 
 import '../../database/document.dart';
 
@@ -52,11 +52,11 @@ class Token implements Document {
       // 捕获JwtException
       if (e.message.contains("expired")) {
         // 检查异常消息是否包含"expired"
-        throw Refuse("token已过期");
+        throw AppError("token已过期");
       }
-      throw Refuse("token检验失败，请重新登录");
+      throw AppError("token检验失败，请重新登录");
     } catch (e) {
-      throw Refuse("token检验失败，请重新登录");
+      throw AppError("token检验失败，请重新登录");
     }
   }
 

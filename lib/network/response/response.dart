@@ -7,15 +7,16 @@ part 'response.g.dart';
 
 @JsonSerializable()
 class Response implements Serializable {
+  /// 如果有id，通常是回复某一个具体的请求
   String? id;
-  final bool success;
+  final bool accept;
   final dynamic message;
   final Json? data;
 
-  Response({this.id, required this.success, this.message, this.data});
+  Response({this.id, required this.accept, this.message, this.data});
 
   factory Response.refuse(String message, {String? id, Json? data}) =>
-      Response(id: id, success: false, message: message, data: data);
+      Response(id: id, accept: false, message: message, data: data);
 
   factory Response.fromJson(Json json) => _$ResponseFromJson(json);
   Json toJson() => _$ResponseToJson(this);

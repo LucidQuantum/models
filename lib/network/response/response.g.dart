@@ -8,14 +8,14 @@ part of 'response.dart';
 
 Response _$ResponseFromJson(Map<String, dynamic> json) => Response(
       id: json['id'] as String?,
-      success: json['success'] as bool,
+      accept: json['success'] as bool,
       message: json['message'],
       data: json['data'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$ResponseToJson(Response instance) => <String, dynamic>{
       'id': instance.id,
-      'success': instance.success,
+      'success': instance.accept,
       'message': instance.message,
       'data': instance.data,
     };

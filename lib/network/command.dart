@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:models/network/request/request.dart';
 import 'package:models/network/response/response.dart';
-import 'package:tools/refuse.dart';
+import 'package:tools/error_handling/app_error.dart';
 
 import '../user/user.dart';
 
@@ -35,7 +35,7 @@ abstract class Command {
 abstract class LoginRequiredCommand extends Command {
   late final User user;
   LoginRequiredCommand(super.request, {required User? user}) {
-    if (user == null) throw Refuse("无法找到用户，请先登录");
+    if (user == null) throw AppError("无法找到用户，请先登录");
     this.user = user;
   }
 }

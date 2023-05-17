@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tools/error_handling/app_error.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
-import 'package:tools/refuse.dart';
 
 import '../../database/document.dart';
 import '../response/response.dart';
@@ -61,7 +61,7 @@ class Request implements Serializable {
 
   /// 从Request的dada中稳定获取一个数值，否则报错
   T extract<T>(String key) {
-    if (data == null) throw Refuse("data为空，请补充");
+    if (data == null) throw AppError.input("data为空，请补充");
     return data!.extract<T>(key);
   }
 
