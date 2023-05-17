@@ -38,6 +38,7 @@ class Sms implements Document {
 }
 
 extension BoolExtension on Sms {
+  /// 目前固定15分钟后过期
   bool get isExpire {
     Duration timeSinceCreated = DateTime.now().difference(createAt);
     final expireTime = Duration(minutes: 15);
