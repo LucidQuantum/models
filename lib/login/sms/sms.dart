@@ -2,7 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
-import 'package:tools/refuse.dart';
 
 import '../../database/document.dart';
 
@@ -13,20 +12,20 @@ class Sms implements Document {
   final String phone;
   final String code;
   final DateTime createAt;
-  bool valid;
+  bool used;
 
   Sms({
     required this.phone,
     required this.code,
     required this.createAt,
-    required this.valid,
+    required this.used,
   });
 
   factory Sms.create(String phone) => Sms(
         phone: phone,
         code: Generator.smsCode(),
         createAt: DateTime.now(),
-        valid: true,
+        used: false,
       );
 
   Json toJson() => _$SmsToJson(this);
