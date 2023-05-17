@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
+import 'package:tools/refuse.dart';
 
 import '../../database/document.dart';
 
@@ -34,4 +35,13 @@ class Sms implements Document {
   @override
   SelectorBuilder get defaultSelector =>
       where.eq("phone", phone).eq("code", code);
+}
+
+extension BoolExtension on Sms {
+  bool get isExpire {
+    Duration timeSinceCreated = DateTime.now().difference(createAt);
+    final expireTime = Duration(minutes: 15);
+
+    return timeSinceCreated > expireTime;
+  }
 }
