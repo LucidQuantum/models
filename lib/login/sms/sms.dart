@@ -12,20 +12,20 @@ class Sms implements Document {
   final String phone;
   final String code;
   final DateTime createAt;
-  bool hasUsed;
+  bool isUsed;
 
   Sms({
     required this.phone,
     required this.code,
     required this.createAt,
-    required this.hasUsed,
+    required this.isUsed,
   });
 
   factory Sms.create(String phone) => Sms(
         phone: phone,
         code: Generator.smsCode(),
         createAt: DateTime.now(),
-        hasUsed: false,
+        isUsed: false,
       );
 
   Json toJson() => _$SmsToJson(this);

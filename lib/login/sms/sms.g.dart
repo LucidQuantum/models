@@ -10,12 +10,12 @@ Sms _$SmsFromJson(Map<String, dynamic> json) => Sms(
       phone: json['phone'] as String,
       code: json['code'] as String,
       createAt: DateTime.parse(json['createAt'] as String),
-      hasUsed: json['hasUsed'] as bool,
+      isUsed: json['hasUsed'] as bool,
     );
 
 Map<String, dynamic> _$SmsToJson(Sms instance) => <String, dynamic>{
       'phone': instance.phone,
       'code': instance.code,
       'createAt': instance.createAt.toIso8601String(),
-      'hasUsed': instance.hasUsed,
+      'hasUsed': instance.isUsed,
     };
