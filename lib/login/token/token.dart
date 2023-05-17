@@ -41,7 +41,7 @@ class Token implements Document {
     return Token(deviceId: deviceId, userId: userId, token: token);
   }
 
-  factory Token.verify(String token) {
+  factory Token.parseWithVerify(String token) {
     try {
       final decClaimSet = verifyJwtHS256Signature(token, _secret);
 
