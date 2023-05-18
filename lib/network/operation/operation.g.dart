@@ -1,21 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'response.dart';
+part of 'operation.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Response _$ResponseFromJson(Map<String, dynamic> json) => Response(
-      id: json['id'] as String?,
-      accept: json['accept'] as bool,
-      message: json['message'],
+Operation _$OperationFromJson(Map<String, dynamic> json) => Operation(
+      id: json['id'] as String,
+      command: json['command'] as String,
       data: json['data'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$ResponseToJson(Response instance) => <String, dynamic>{
+Map<String, dynamic> _$OperationToJson(Operation instance) => <String, dynamic>{
       'id': instance.id,
-      'accept': instance.accept,
-      'message': instance.message,
+      'command': instance.command,
       'data': instance.data,
     };
