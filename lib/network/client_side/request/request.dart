@@ -7,8 +7,8 @@ import 'package:tools/error_handling/app_error.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
-import '../../database/document.dart';
-import '../response/response.dart';
+import '../../../database/document.dart';
+import '../../server_side/response/response.dart';
 
 part 'request.g.dart';
 

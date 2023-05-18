@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
 
-import '../operation/operation.dart';
+import '../../client_side/operation/operation.dart';
 
 part 'push.g.dart';
 

@@ -1,4 +1,4 @@
-import '../../network/request/request.dart';
+import '../../network/client_side/request/request.dart';
 
 class TokenLoginRequest extends Request {
   TokenLoginRequest(String token)

@@ -1,4 +1,4 @@
-import '../../network/request/request.dart';
+import '../../network/client_side/request/request.dart';
 
 class SendSmsRequest extends Request {
   SendSmsRequest(String phone)

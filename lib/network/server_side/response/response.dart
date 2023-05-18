@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
 
-import '../../database/document.dart';
+import '../../../database/document.dart';
 
 part 'response.g.dart';
 
