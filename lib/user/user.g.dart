@@ -10,7 +10,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
       phone: json['phone'] as String,
       orients: (json['orients'] as List<dynamic>)
-          .map((e) => Orient.fromJson(e as Map<String, dynamic>))
+          .map((e) => Target.fromJson(e as Map<String, dynamic>))
           .toList(),
     )
       .._currentOrientIndex = json['_currentOrientIndex'] as int?

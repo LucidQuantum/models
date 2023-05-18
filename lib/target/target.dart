@@ -5,21 +5,21 @@ import 'package:tools/generator.dart';
 import '../database/document.dart';
 import '../dive/dive.dart';
 
-part 'orient.g.dart';
+part 'target.g.dart';
 
-/// 定向[Orient]
+/// 目标[Target]
 ///
-/// 代表深海蛋中采集珍珠草时要确定的一个方向
-/// 也代表现实生活中，要工作之前，先确定的目标
+/// 现实：想去做的事
+/// 深海蛋：采集珍珠草时要确定的方位
 @JsonSerializable()
-class Orient implements Serializable {
+class Target implements Serializable {
   final String id;
   String name;
   String caption;
   final List<Dive> dives;
   OrientState state;
 
-  Orient({
+  Target({
     required this.id,
     required this.name,
     required this.caption,
@@ -27,8 +27,8 @@ class Orient implements Serializable {
     required this.state,
   });
 
-  factory Orient.create(String name) {
-    return Orient(
+  factory Target.create(String name) {
+    return Target(
       id: Generator.id(),
       name: name,
       caption: "",
@@ -37,8 +37,8 @@ class Orient implements Serializable {
     );
   }
 
-  factory Orient.fromJson(Json json) => _$OrientFromJson(json);
-  Json toJson() => _$OrientToJson(this);
+  factory Target.fromJson(Json json) => _$TargetFromJson(json);
+  Json toJson() => _$TargetToJson(this);
 }
 
 enum OrientState { active, discarded, completed }

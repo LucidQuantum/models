@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'orient.dart';
+part of 'target.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Orient _$OrientFromJson(Map<String, dynamic> json) => Orient(
+Target _$TargetFromJson(Map<String, dynamic> json) => Target(
       id: json['id'] as String,
       name: json['name'] as String,
       caption: json['caption'] as String,
@@ -16,7 +16,7 @@ Orient _$OrientFromJson(Map<String, dynamic> json) => Orient(
       state: $enumDecode(_$OrientStateEnumMap, json['state']),
     );
 
-Map<String, dynamic> _$OrientToJson(Orient instance) => <String, dynamic>{
+Map<String, dynamic> _$TargetToJson(Target instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'caption': instance.caption,
