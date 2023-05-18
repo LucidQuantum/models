@@ -9,7 +9,7 @@ part of 'response.dart';
 Response _$ResponseFromJson(Map<String, dynamic> json) => Response(
       id: json['id'] as String?,
       accept: json['accept'] as bool,
-      message: json['message'],
+      message: json['message'] as String?,
       data: json['data'] as Map<String, dynamic>?,
     );
 

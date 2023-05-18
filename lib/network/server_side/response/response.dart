@@ -22,3 +22,12 @@ class Response implements Serializable {
   factory Response.fromJson(Json json) => _$ResponseFromJson(json);
   Json toJson() => _$ResponseToJson(this);
 }
+
+/// 一般登录时才会发送数据
+class Accept extends Response {
+  Accept({Json? data}) : super(accept: true, data: data);
+}
+
+class Refuse extends Response {
+  Refuse(String message) : super(accept: false, message: message);
+}
