@@ -13,16 +13,16 @@ part 'user.g.dart';
 class User implements Document {
   final String id;
   String phone;
-  List<Target> orients;
+  List<Target> targets;
 
   @JsonKey(includeFromJson: true, includeToJson: true)
-  int? _currentOrientIndex;
-  Target? get currentOrient =>
-      _currentOrientIndex != null ? orients[_currentOrientIndex!] : null;
+  int? _DivingTargetIndex;
+  Target? get divingTarget =>
+      _DivingTargetIndex != null ? targets[_DivingTargetIndex!] : null;
 
   DateTime? startTime;
 
-  User({required this.id, required this.phone, required this.orients});
+  User({required this.id, required this.phone, required this.targets});
 
   factory User.fromJson(Json json) => _$UserFromJson(json);
   Json toJson() => _$UserToJson(this);
@@ -30,30 +30,24 @@ class User implements Document {
   factory User.create(String phone) => User(
         id: Generator.id(),
         phone: phone,
-        orients: [],
+        targets: [],
       );
 
-  Target createOrient(String name) {
-    final orient = Target.create(name);
-    orients.add(orient);
-    return orient;
-  }
-
   startDive(Target orient) {
-    assert(_currentOrientIndex == null && startTime == null);
+    assert(_DivingTargetIndex == null && startTime == null);
     // 记录orient和当前时间
     startTime = DateTime.now();
-    _currentOrientIndex = orients.indexOf(orient);
+    _DivingTargetIndex = targets.indexOf(orient);
   }
 
   finishDive() {
-    assert(_currentOrientIndex != null && startTime != null);
+    assert(_DivingTargetIndex != null && startTime != null);
     // 在当前orient中加入一个Dive
     final dive = Dive(begin: startTime!, end: DateTime.now());
-    currentOrient!.dives.add(dive);
+    divingTarget!.dives.add(dive);
 
     // 清除当前信息
-    _currentOrientIndex = null;
+    _DivingTargetIndex = null;
     startTime = null;
   }
 

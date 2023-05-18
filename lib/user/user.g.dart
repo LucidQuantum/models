@@ -9,11 +9,11 @@ part of 'user.dart';
 User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
       phone: json['phone'] as String,
-      orients: (json['orients'] as List<dynamic>)
+      targets: (json['orients'] as List<dynamic>)
           .map((e) => Target.fromJson(e as Map<String, dynamic>))
           .toList(),
     )
-      .._currentOrientIndex = json['_currentOrientIndex'] as int?
+      .._DivingTargetIndex = json['_currentOrientIndex'] as int?
       ..startTime = json['startTime'] == null
           ? null
           : DateTime.parse(json['startTime'] as String);
@@ -21,7 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'phone': instance.phone,
-      'orients': instance.orients.map((e) => e.toJson()).toList(),
-      '_currentOrientIndex': instance._currentOrientIndex,
+      'orients': instance.targets.map((e) => e.toJson()).toList(),
+      '_currentOrientIndex': instance._DivingTargetIndex,
       'startTime': instance.startTime?.toIso8601String(),
     };
