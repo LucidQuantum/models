@@ -10,13 +10,14 @@ class Response implements Serializable {
   /// 如果有id，通常是回复某一个具体的请求
   String? id;
   final bool accept;
-  final dynamic message;
+  final String? message;
   final Json? data;
 
   Response({this.id, required this.accept, this.message, this.data});
 
-  factory Response.refuse(String message, {String? id, Json? data}) =>
-      Response(id: id, accept: false, message: message, data: data);
+  factory Response.refuse(String message, {Json? data}) =>
+      Response(accept: false, message: message, data: data);
+  factory Response.accept() => Response(accept: true);
 
   factory Response.fromJson(Json json) => _$ResponseFromJson(json);
   Json toJson() => _$ResponseToJson(this);
