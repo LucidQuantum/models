@@ -12,7 +12,7 @@ class Client {
   User? user;
   final WebSocket _socket;
 
-  /// [getCommand]：由于可能会频繁修改，所以最好放在客户端
+  /// 由于[getCommand]可能会频繁修改，所以最好放在客户端
   Client(
     this._socket,
     Command? Function(Client client, Request request) getCommand,
@@ -23,18 +23,13 @@ class Client {
 
     // 等待请求
     _socket.listen((message) async {
-      // 解析，通常在产品中这一步不会出错
-      late final Request request;
-      try {
-        request = Request.parse(message);
-      } on AppError catch (error) {
-        final warning = Response.refuse(error.reason);
-        _socket.send(warning);
-      }
-
-      // 得到回复
+      Request? request;
       late final Response response;
+
       try {
+        // 解析
+        request = Request.parse(message);
+
         // 找到对应的指令
         final Command? command = getCommand(this, request);
         if (command == null) throw AppError("无法识别指令");
@@ -55,7 +50,7 @@ class Client {
       }
 
       // 回复请求
-      response.id = request.id;
+      response.id = request?.id;
       _socket.send(response);
     });
   }
