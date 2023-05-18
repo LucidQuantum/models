@@ -66,5 +66,7 @@ class User implements Document {
   }
 
   @override
-  SelectorBuilder get defaultSelector => where.eq("id", id);
+  late Map<String, dynamic> finder = {
+    "id": id,
+  };
 }

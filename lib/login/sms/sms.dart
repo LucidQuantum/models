@@ -32,8 +32,7 @@ class Sms implements Document {
   factory Sms.fromJson(Json json) => _$SmsFromJson(json);
 
   @override
-  SelectorBuilder get defaultSelector =>
-      where.eq("phone", phone).eq("code", code);
+  late Map<String, dynamic> finder = {"phone": phone, "code": code};
 }
 
 extension BoolExtension on Sms {
