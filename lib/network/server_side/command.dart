@@ -1,5 +1,8 @@
 import 'package:meta/meta.dart';
 import 'package:models/network/network.dart';
+import 'package:tools/error_handling/app_error.dart';
+
+import '../../user/user.dart';
 
 /// 服务端使用，定义了处理某种Request的方式
 ///
@@ -8,9 +11,14 @@ import 'package:models/network/network.dart';
 abstract class Command {
   final Request request;
   final Client client;
+
   Command(this.client, this.request);
 
   bool get requireLogin;
+  User get user {
+    if (!requireLogin) throw AppError("开发错误：在没有要求登录的Command中请求用户信息");
+    return client.user!;
+  }
 
   /// 检查输入是否符合格式
   void inputCheck();
