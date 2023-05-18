@@ -1,7 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:models/network/server_side/client.dart';
-import 'package:models/network/server_side/response/response.dart';
-import '../client_side/request/request.dart';
+import 'package:models/network/network.dart';
 
 /// 服务端使用，定义了处理某种Request的方式
 ///

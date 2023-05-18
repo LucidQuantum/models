@@ -8,7 +8,7 @@ import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
 import '../../../database/document.dart';
-import '../../server_side/response/response.dart';
+import 'package:models/network/network.dart';
 
 part 'request.g.dart';
 
