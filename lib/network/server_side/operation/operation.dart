@@ -7,14 +7,23 @@ part 'operation.g.dart';
 @JsonSerializable()
 class Operation {
   final String id;
-  final String command;
-  final Json? data;
-  const Operation({
+  final String previousOperationId;
+  final OperationModel model;
+  final OperationType type;
+  final Map<String, dynamic> data;
+
+  Operation({
     required this.id,
-    required this.command,
+    required this.previousOperationId,
+    required this.model,
+    required this.type,
     required this.data,
   });
 
   factory Operation.fromJson(Json json) => _$OperationFromJson(json);
   Json toJson() => _$OperationToJson(this);
 }
+
+enum OperationType { create, update, delete }
+
+enum OperationModel { user, target, dive }
