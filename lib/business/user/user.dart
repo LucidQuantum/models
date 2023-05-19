@@ -30,28 +30,3 @@ class User implements Document {
   @override
   late Map<String, dynamic> finder = {"id": id};
 }
-
-
-
-
-// startDive(Target orient) {
-//   assert(_DivingTargetIndex == null && startTime == null);
-//   // 记录orient和当前时间
-//   startTime = DateTime.now();
-//   _DivingTargetIndex = targets.indexOf(orient);
-// }
-
-// finishDive() {
-//   assert(_DivingTargetIndex != null && startTime != null);
-//   // 在当前orient中加入一个Dive
-//   final dive = Dive.create(
-//     targetId: currentTarget!.id,
-//     begin: startTime!,
-//     end: DateTime.now(),
-//   );
-//   divingTarget!.dives.add(dive);
-
-//   // 清除当前信息
-//   _DivingTargetIndex = null;
-//   startTime = null;
-// }
