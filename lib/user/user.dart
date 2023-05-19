@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:models/database/document.dart';
 import 'package:models/dive/dive.dart';
-import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/error_handling/app_error.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';

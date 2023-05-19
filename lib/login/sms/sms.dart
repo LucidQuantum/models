@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mongo_dart_query/mongo_dart_query.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
