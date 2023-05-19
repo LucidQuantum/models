@@ -10,7 +10,8 @@ import 'package:tools/json.dart';
 /// 比如说，就可以防止User model不小心插入到Sms collection中
 abstract class MongoDAO<T extends Document> extends BaseDAO<T> {
   @protected
-  DbCollection get collection;
+  final DbCollection collection;
+  MongoDAO(this.collection);
 
   @override
   Future insert(T item) async {
@@ -34,7 +35,7 @@ abstract class MongoDAO<T extends Document> extends BaseDAO<T> {
     final selector = query.toSelector();
     final Json? result = await collection.findOne(selector);
     if (result == null) return null;
-    return fromJson(result);
+    return unserialize(result);
   }
 }
 

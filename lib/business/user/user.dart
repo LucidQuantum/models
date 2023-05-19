@@ -32,18 +32,7 @@ class User implements Document {
 }
 
 
-// Target? findTarget(String id) {
-//   for (final target in targets) {
-//     if (target.id == id) return target;
-//   }
-//   return null;
-// }
 
-// Target findTargetOrThrow(String id) {
-//   final target = findTarget(id);
-//   if (target == null) throw AppError("没有根据id：$id找到对应的目标");
-//   return target;
-// }
 
 // startDive(Target orient) {
 //   assert(_DivingTargetIndex == null && startTime == null);
