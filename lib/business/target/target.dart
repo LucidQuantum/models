@@ -2,7 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
-import '../database/document.dart';
+import 'package:models/business/business.dart';
+import '../../database/document.dart';
 import '../dive/dive.dart';
 
 part 'target.g.dart';

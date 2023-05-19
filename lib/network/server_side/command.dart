@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
+import 'package:models/business/business.dart';
 import 'package:models/network/network.dart';
 import 'package:tools/error_handling/app_error.dart';
-
-import '../../user/user.dart';
 
 /// 服务端使用，定义了处理某种Request的方式
 ///

@@ -1,11 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:models/database/document.dart';
-import 'package:models/dive/dive.dart';
+import 'package:models/business/business.dart';
 import 'package:tools/error_handling/app_error.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
-
-import '../target/target.dart';
 
 part 'user.g.dart';
 
