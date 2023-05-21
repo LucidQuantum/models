@@ -38,7 +38,8 @@ class Client {
         if (command == null) throw AppError("无法识别指令");
 
         // 执行指令，并回复结果
-        response = await command.execute();
+        // ignore: invalid_use_of_protected_member
+        response = await command.run();
       } on AppError catch (error) {
         // 预期内的错误
         response = Response.refuse(error.reason);
