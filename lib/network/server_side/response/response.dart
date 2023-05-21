@@ -11,6 +11,8 @@ class Response implements Serializable {
   String? id;
   final bool accept;
   final String? message;
+
+  @JsonKey(includeIfNull: false)
   final Json? data;
 
   Response({this.id, required this.accept, this.message, this.data});

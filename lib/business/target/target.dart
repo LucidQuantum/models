@@ -11,9 +11,11 @@ part 'target.g.dart';
 /// 现实：想去做的事
 /// 深海蛋：采集珍珠草时要确定的方位
 @JsonSerializable()
-class Target implements Document {
+class Target implements TrackableDocument {
   final String id;
   final String userId;
+  @override
+  DateTime lastModified;
   String name;
   String caption;
   OrientState state;
@@ -24,6 +26,7 @@ class Target implements Document {
     required this.name,
     required this.caption,
     required this.state,
+    required this.lastModified,
   });
 
   Target.create({
@@ -31,6 +34,7 @@ class Target implements Document {
     required this.userId,
   })  : id = Generator.id(),
         caption = "",
+        lastModified = DateTime.now(),
         state = OrientState.active;
 
   factory Target.fromJson(Json json) => _$TargetFromJson(json);

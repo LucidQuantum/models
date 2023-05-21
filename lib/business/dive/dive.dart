@@ -12,23 +12,28 @@ part 'dive.g.dart';
 /// 代表要采集珍珠草时的行动
 /// 也代表现实生活中，完成任务时所要进入的心流状态
 @JsonSerializable()
-class Dive implements Document {
+class Dive implements TrackableDocument {
   final String id;
   final String targetId;
   final DateTime begin;
   final DateTime? end;
+
+  @override
+  DateTime lastModified;
   Dive({
     required this.id,
     required this.targetId,
     required this.begin,
     required this.end,
+    required this.lastModified,
   });
 
   Dive.create({
     required this.targetId,
     required this.begin,
     required this.end,
-  }) : id = Generator.id();
+  })  : id = Generator.id(),
+        lastModified = DateTime.now();
 
   factory Dive.fromJson(Json json) => _$DiveFromJson(json);
   Json toJson() => _$DiveToJson(this);

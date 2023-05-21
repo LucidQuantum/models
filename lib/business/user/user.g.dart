@@ -13,11 +13,13 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
           ? null
           : CurrentTarget.fromJson(
               json['currentTarget'] as Map<String, dynamic>),
+      lastModified: DateTime.parse(json['lastModified'] as String),
     )..finder = json['finder'] as Map<String, dynamic>;
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'phone': instance.phone,
       'currentTarget': instance.currentTarget?.toJson(),
+      'lastModified': instance.lastModified.toIso8601String(),
       'finder': instance.finder,
     };
