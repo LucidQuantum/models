@@ -4,17 +4,21 @@ import 'package:models/business/business.dart';
 import 'package:tools/error_handling/app_error.dart';
 import 'package:models/network/network.dart';
 
+import 'server.dart';
+
 /// 对于服务器来说，一个连接就是一个客户端
 /// 连接成功后，每收到一个请求，就需要将它转化为可执行的命令，并给予一个返回的Response
 /// 如果该命令涉及到数据的变化，那就要以Push的形式推送给客户端
 class Client {
   User? user;
   final WebSocket _socket;
+  final Server server;
 
   /// 由于[getCommand]可能会频繁修改，所以最好放在客户端
   Client(
     this._socket,
-    Command? Function(Client client, Request request) getCommand,
+    this.server,
+    Command? Function(Server server, Client client, Request request) getCommand,
   ) {
     // 发送一条连接成功作为回应
     final hello = Response(accept: true, message: "连接成功，请登录");
@@ -30,7 +34,7 @@ class Client {
         request = Request.parse(message);
 
         // 找到对应的指令
-        final Command? command = getCommand(this, request);
+        final Command? command = getCommand(server, this, request);
         if (command == null) throw AppError("无法识别指令");
 
         // 执行指令，并回复结果
@@ -53,4 +57,6 @@ class Client {
       _socket.send(response);
     });
   }
+
+  void sendOperation(Operation operation) => _socket.send(operation);
 }
