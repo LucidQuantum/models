@@ -6,10 +6,11 @@ import 'package:models/network/network.dart';
 
 import 'server.dart';
 
-/// 对于服务器来说，一个连接就是一个客户端
-/// 连接成功后，每收到一个请求，就需要将它转化为可执行的命令，并给予一个返回的Response
-/// 如果该命令涉及到数据的变化，那就要以Push的形式推送给客户端
+/// 用于和客户端收发信息
+/// 1. 当接受的信息为[Request]格式时，返回的信息为[Response]（在绝大部分情况下，它们的id会一一对应）
+/// 2. 当推送消息时，客户端会主动向用户发送[Operation]操作，用于指导客户端修改服务器的数据
 class Client {
+  /// 当[user]为null时，即未登录
   User? user;
   final WebSocket _socket;
   final Server server;
