@@ -1,7 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:models/business/business.dart';
 import 'package:models/network/network.dart';
-import 'package:models/network/server_side/server.dart';
 import 'package:tools/error_handling/app_error.dart';
 
 /// 服务端使用，定义了处理某种Request的方式
@@ -10,10 +9,9 @@ import 'package:tools/error_handling/app_error.dart';
 /// 如果遇到问题，那么直接抛出[Refuse]（这会由服务器默认捕捉，然后用它自己的方式返回）
 abstract class Command {
   final Request request;
-  final Server server;
   final Client client;
 
-  Command(this.server, this.client, this.request);
+  Command(this.client, this.request);
 
   bool get requireLogin;
   User get user {

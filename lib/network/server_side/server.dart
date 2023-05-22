@@ -14,13 +14,12 @@ class Server {
   factory Server() => _singleton;
   Server._internal();
 
-  late Command? Function(Server server, Client client, Request request)
-      getCommand;
+  late Command? Function(Client client, Request request) getCommand;
 
   /// 通常在main.dart中使用，其他地方都是不合法的
   @protected
   Future launch(
-    Command? Function(Server server, Client client, Request request) getCommand,
+    Command? Function(Client client, Request request) getCommand,
   ) async {
     // 3. 绑定
     this.getCommand = getCommand;
@@ -36,7 +35,7 @@ class Server {
         final socket = await WebSocketTransformer.upgrade(httpRequest);
 
         // 注册并维持连接
-        final client = Client(socket, this, getCommand);
+        final client = Client(socket, getCommand);
         _clients.add(client);
 
         // 当连接关闭时，移除连接

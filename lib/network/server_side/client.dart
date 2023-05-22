@@ -4,8 +4,6 @@ import 'package:models/business/business.dart';
 import 'package:tools/error_handling/app_error.dart';
 import 'package:models/network/network.dart';
 
-import 'server.dart';
-
 /// 用于和客户端收发信息
 /// 1. 当接受的信息为[Request]格式时，返回的信息为[Response]（在绝大部分情况下，它们的id会一一对应）
 /// 2. 当推送消息时，客户端会主动向用户发送[Operation]操作，用于指导客户端修改服务器的数据
@@ -13,13 +11,11 @@ class Client {
   /// 当[user]为null时，即未登录
   User? user;
   final WebSocket _socket;
-  final Server server;
 
   /// 由于[getCommand]可能会频繁修改，所以最好放在客户端
   Client(
     this._socket,
-    this.server,
-    Command? Function(Server server, Client client, Request request) getCommand,
+    Command? Function(Client client, Request request) getCommand,
   ) {
     // 发送一条连接成功作为回应
     final hello = Response(accept: true, message: "连接成功，请登录");
@@ -35,7 +31,7 @@ class Client {
         request = Request.parse(message);
 
         // 找到对应的指令
-        final Command? command = getCommand(server, this, request);
+        final Command? command = getCommand(this, request);
         if (command == null) throw AppError("无法识别指令");
 
         // 执行指令，并回复结果
