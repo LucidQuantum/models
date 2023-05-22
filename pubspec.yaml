@@ -1,5 +1,5 @@
 name: models
-description: 弗田使用的model
+description: 弗田使用的model（前后端共用）
 
 environment:
     sdk: '>=3.0.0 <4.0.0'

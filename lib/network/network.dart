@@ -1,9 +1,6 @@
 library network;
 
 /// 服务端
-export "server_side/client.dart"; // 管理客户端连接
-
-export "server_side/command.dart"; // 处理请求
 export 'server_side/response/response.dart'; // 回复请求
 
 export 'server_side/push/push.dart'; // 推送
