@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:models/network/network.dart';
 
 import '../../business/user/user.dart';
-import '../../eventbus.dart';
 
 /// 由于使用WebSocket连接，所以需要此class来维护[Client]
 /// 它的作用相当于[Client]的数据库，只不过不需要持久化保存
@@ -11,26 +10,9 @@ class Server {
   /// 维持中的所有连接
   List<Client> _clients = [];
 
-  /// 事件总线，用于监听事件，比如向特定的客户端推送消息
-  final eventBus = EventBus();
-
   static final _singleton = Server._internal();
   factory Server() => _singleton;
-  Server._internal() {
-    eventBus.on(
-      "send_operation",
-      (User user, Operation operation) {
-        // 寻找所有符合的client
-        final List<Client> userClients =
-            _clients.where((client) => client.user?.id == user.id).toList();
-
-        // 向这些client发送Operation
-        for (final client in userClients) {
-          client.sendOperation(operation);
-        }
-      },
-    );
-  }
+  Server._internal();
 
   late Command? Function(Server server, Client client, Request request)
       getCommand;
@@ -67,6 +49,17 @@ class Server {
         httpRequest.response.write('不支持HTTP/HTTPS协议，请使用WebSocket');
         httpRequest.response.close();
       }
+    }
+  }
+
+  void pushOperation(User user, Operation operation) {
+    // 寻找所有符合的client
+    final List<Client> userClients =
+        _clients.where((client) => client.user?.id == user.id).toList();
+
+    // 向这些client发送Operation
+    for (final client in userClients) {
+      client.sendOperation(operation);
     }
   }
 }
