@@ -9,5 +9,4 @@ export "server_side/operation/operation.dart"; // 推送的操作
 /// 客户端
 export "client_side/request/request.dart"; // 请求
 
-/// 工具
-export "socket.dart";
+
