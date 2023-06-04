@@ -27,7 +27,7 @@ class Response implements Serializable {
 
 /// 一般登录时才会发送数据
 class Accept extends Response {
-  Accept({Json? data}) : super(accept: true, data: data);
+  Accept({Json? data}) : super(accept: true, message: "操作成功", data: data);
 }
 
 class Refuse extends Response {
