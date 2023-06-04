@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/error_handling/app_error.dart';
+import 'package:tools/error_handling/fault.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 

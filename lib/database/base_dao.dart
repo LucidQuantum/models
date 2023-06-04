@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:tools/error_handling/app_error.dart';
+import 'package:tools/error_handling/fault.dart';
 import 'package:tools/json.dart';
 
 import 'document.dart';
