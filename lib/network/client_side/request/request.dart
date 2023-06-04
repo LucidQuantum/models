@@ -28,6 +28,7 @@ class Request implements Serializable {
   factory Request.parse(String string) {
     final json = string.toJson();
 
+    json.ensure<String>("id");
     json.ensure<String>("command");
     json.ensure<Json>("data", nullable: true);
 
