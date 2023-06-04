@@ -15,7 +15,7 @@ abstract class BaseDAO<T extends Document> {
   Future<T?> findOne(Map<String, dynamic> query);
   Future<T> findOneOrThrow(Map<String, dynamic> query) async {
     final T? item = await findOne(query);
-    if (item == null) throw AppError("没有根据query找到对应的目标：$query");
+    if (item == null) throw Fault("没有根据query找到对应的目标：$query");
     return item;
   }
 

@@ -62,7 +62,7 @@ class Request implements Serializable {
 
   /// 从Request的dada中稳定获取一个数值，否则报错
   T extract<T>(String key) {
-    if (data == null) throw AppError.input("data为空，请补充");
+    if (data == null) throw Fault.input("data为空，请补充");
     return data!.extract<T>(key);
   }
 
