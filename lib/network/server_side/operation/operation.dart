@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:models/database/document.dart';
 import 'package:tools/json.dart';
 
 part 'operation.g.dart';
@@ -8,7 +7,7 @@ part 'operation.g.dart';
 ///
 /// 客户端那边会根据lastOperationTime来匹配操作，以免顺序搞乱，操作完成后，会将createTime更新、覆盖为lastOperationTime
 @JsonSerializable()
-class Operation implements Serializable {
+class Operation implements Jsonable {
   final DateTime createTime;
   final DateTime lastOperationTime;
   final OperationModel model;

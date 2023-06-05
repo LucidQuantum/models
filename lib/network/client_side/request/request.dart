@@ -7,13 +7,12 @@ import 'package:tools/error_handling/fault.dart';
 import 'package:tools/json.dart';
 import 'package:tools/generator.dart';
 
-import '../../../database/document.dart';
 import 'package:models/network/network.dart';
 
 part 'request.g.dart';
 
 @JsonSerializable()
-class Request implements Serializable {
+class Request implements Jsonable {
   final String id;
   final String command;
   final Json? data;
