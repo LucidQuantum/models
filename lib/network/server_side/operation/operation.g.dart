@@ -29,7 +29,7 @@ const _$OperationModelEnumMap = {
 };
 
 const _$OperationTypeEnumMap = {
-  OperationType.insert: 'add',
+  OperationType.insert: 'insert',
   OperationType.create: 'create',
   OperationType.update: 'update',
   OperationType.delete: 'delete',
