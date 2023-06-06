@@ -42,3 +42,19 @@ class CurrentTargetAdapter extends TypeAdapter<CurrentTarget> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+CurrentTarget _$CurrentTargetFromJson(Map<String, dynamic> json) =>
+    CurrentTarget(
+      id: json['id'] as String,
+      startTime: DateTime.parse(json['startTime'] as String),
+    );
+
+Map<String, dynamic> _$CurrentTargetToJson(CurrentTarget instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'startTime': instance.startTime.toIso8601String(),
+    };

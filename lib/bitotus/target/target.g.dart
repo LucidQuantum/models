@@ -51,3 +51,25 @@ class TargetAdapter extends TypeAdapter<Target> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Target _$TargetFromJson(Map<String, dynamic> json) => Target(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      caption: json['caption'] as String,
+      state: json['state'] as String,
+      dives: (json['dives'] as List<dynamic>)
+          .map((e) => Dive.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$TargetToJson(Target instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'caption': instance.caption,
+      'state': instance.state,
+      'dives': instance.dives.map((e) => e.toJson()).toList(),
+    };

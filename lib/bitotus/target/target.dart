@@ -1,12 +1,15 @@
 import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:tools/generator.dart';
+import 'package:tools/json.dart';
 
 import '../dive/dive.dart';
 
 part 'target.g.dart';
 
+@JsonSerializable()
 @HiveType(typeId: 3)
-class Target extends HiveObject {
+class Target extends HiveObject implements Jsonable {
   @HiveField(0)
   final String id;
 
@@ -36,4 +39,8 @@ class Target extends HiveObject {
         caption = "",
         state = "active",
         dives = [];
+
+  @override
+  Json toJson() => _$TargetToJson(this);
+  factory Target.fromJson(Json json) => _$TargetFromJson(json);
 }
