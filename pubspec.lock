@@ -636,11 +636,9 @@ packages:
   tools:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: ad311eaeb05accd690a1ea64dacd0ec18bf3b37a
-      url: "https://github.com/LucidQuantum/tools.git"
-    source: git
+      path: "../tools"
+      relative: true
+    source: path
     version: "0.0.0"
   typed_data:
     dependency: transitive
