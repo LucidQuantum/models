@@ -13,6 +13,9 @@ class Dive extends HiveObject implements Jsonable {
   @HiveField(1)
   final DateTime end;
 
+  /// 计算当前dive一共经过了多久
+  Duration get duration => end.difference(begin);
+
   Dive({
     required this.begin,
     required this.end,
