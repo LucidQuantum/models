@@ -26,6 +26,15 @@ class Target extends HiveObject implements Jsonable {
   @HiveField(4)
   List<Dive> dives;
 
+  /// 在这个任务上总共投入的时间
+  Duration get totalTime {
+    var output = Duration.zero;
+    for (final dive in dives) {
+      output += dive.duration;
+    }
+    return output;
+  }
+
   Target({
     required this.id,
     required this.name,
